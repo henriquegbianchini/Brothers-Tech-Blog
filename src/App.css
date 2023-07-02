@@ -1,1 +1,14 @@
+/* Aqui vão todas as variaveis globais textos, cores, fontes, etc */
 
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Catamaran', 'Arial';
+  overflow-x: hidden;
+}
+
+:root {
+  --title: 24px;
+  --text: 16px;
+  --text-white: #fffefe;
+}
