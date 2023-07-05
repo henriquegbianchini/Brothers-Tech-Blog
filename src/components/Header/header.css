@@ -1,5 +1,6 @@
 .header {
   background-color: #1e3799;
+  color: #fff;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
   position: relative;
   display: flex;
@@ -16,15 +17,15 @@
 .header-section h2 {
   padding-left: 8px;
 }
-
-@media (max-width: 880px) {
-            .menu-toggle {
-                transition: all 0.5s ease 0s;
-                display: block;}
-            .menu {
-                transition: all 0.5s ease 0s;
-                display: none;}
-            .autenticacao {
-                transition: all 0.5s ease 0s;
-                display: none;}
-        }
+/**/
+/* @media (max-width: 880px) { */
+/*             .menu-toggle { */
+/*                 transition: all 0.5s ease 0s; */
+/*                 display: block;} */
+/*             .menu { */
+/*                 transition: all 0.5s ease 0s; */
+/*                 display: none;} */
+/*             .autenticacao { */
+/*                 transition: all 0.5s ease 0s; */
+/*                 display: none;} */
+/*         } */
