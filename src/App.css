@@ -22,6 +22,7 @@
   font-family: 'Catamaran', 'Arial';
   font-style: normal;
   text-decoration: none;
+  list-style-type: none;
 }
 
 :root {
