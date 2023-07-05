@@ -1,10 +1,27 @@
 /* Aqui vão todas as variaveis globais textos, cores, fontes, etc */
 
+/*
+  Colors:
+    #eb2f06
+    #f1f1f1
+    #4a69bd
+    #1e3799
+    #000000
+    #ffffff
+    #bdbdbd
+    #3b5998
+    #00acee
+    #c8232c
+    #e55039
+    #2e2e2e
+*/
+
 * {
   margin: 0px;
   padding: 0px;
   font-family: 'Catamaran', 'Arial';
-  overflow-x: hidden;
+  font-style: normal;
+  text-decoration: none;
 }
 
 :root {
