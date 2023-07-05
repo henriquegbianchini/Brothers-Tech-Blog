@@ -16,3 +16,15 @@
 .header-section h2 {
   padding-left: 8px;
 }
+
+@media (max-width: 880px) {
+            .menu-toggle {
+                transition: all 0.5s ease 0s;
+                display: block;}
+            .menu {
+                transition: all 0.5s ease 0s;
+                display: none;}
+            .autenticacao {
+                transition: all 0.5s ease 0s;
+                display: none;}
+        }
