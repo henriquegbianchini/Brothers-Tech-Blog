@@ -4,7 +4,7 @@ import "./header.css";
 export default function Header() {
   return(
     <div className="header">
-      <h1>Brothers Tech.Blog</h1>
+      <h1>Brothers Tech<span>.Blog</span></h1>
        <div className="header-section">
         <h2>Home</h2>
         <h2>Artigos</h2>
