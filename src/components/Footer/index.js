@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaEnvelopeSquare } from 'react-icons/fa'
 import "./footer.css";
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
       <div className="contact">
         <li><Link to="/" className="contact-item">BrothersTech.Blog</Link></li>
         <li>By Henrique Bianchini and Rafael Reis</li>
-        <li>brotherstechblog@gmail.com</li>
+        <li><FaEnvelopeSquare className="envelope-item"/>brotherstechblog@gmail.com</li>
       </div>
       <div className="links">
         <li className="underline">Links</li>
