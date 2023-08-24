@@ -29,7 +29,7 @@ Ruan:
     mesmo titulo e mesmo logo
 
 
-Ruan: 
+Ruan: 23/08/2023
 - Adicionei a sidebar finalizei tambem os links primarios da aplicação 
     footer ainda falta deixar com display relative eu deixei assim pra ver como fica na versão de teste
 
@@ -38,4 +38,11 @@ por enquanto todas as páginas estão dando o mesmo erro
 
 adionado o react-router-dom pras rotas.
 
-adicionei tambem cores padrões estão em App.css USE 
+adicionei tambem cores padrões estão em App.css use as cores como bem quiser
+
+24/08/2023 13:32 
+adicionei a pasta assets importando do projeto principal
+
+13:26
+movi as rotas pra diretorios própios
+
