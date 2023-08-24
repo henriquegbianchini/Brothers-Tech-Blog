@@ -1,0 +1,20 @@
+.lastnews {
+  margin: 30px;
+}
+
+.article-title {
+ letter-spacing: 2px; 
+}
+
+.article-spacing {
+  padding: 0.3px;
+  background-color: white;
+}
+
+.lastnews-card-container {
+  display: flex;
+}
+
+.card-last {
+  width: 400px;
+}
