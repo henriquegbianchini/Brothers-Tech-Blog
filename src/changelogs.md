@@ -29,3 +29,13 @@ Ruan:
     mesmo titulo e mesmo logo
 
 
+Ruan: 
+- Adicionei a sidebar finalizei tambem os links primarios da aplicação 
+    footer ainda falta deixar com display relative eu deixei assim pra ver como fica na versão de teste
+
+as rotas primarias são: /artigos , /sobre , /contato , /artigos , fora a home e a pagina de erro 
+por enquanto todas as páginas estão dando o mesmo erro
+
+adionado o react-router-dom pras rotas.
+
+adicionei tambem cores padrões estão em App.css USE 

@@ -7,9 +7,8 @@
   align-content: flex-start;
   margin-top: 1000px;
   padding: 50px;
-  background-color: #4a69bd;
+  background-color: var(--background-color);
   box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.30); /* depois verificar. medida não exata */
-  color: #fff;
 }
 
 .underline {
@@ -17,22 +16,27 @@
   margin-bottom: 5px;
   font-weight: bold;
   font-size: var(--2xtext);
+  color: var(--text-white);
 }
 
 .inline {
   padding-bottom: 5px;
+  color: var(--text-white);
+}
+
+.inline:hover {
+  color: var(--selection-color);
 }
 
 .contact li {
   padding-bottom: 5px;
+  color: var(--text-white);
 }
-.contact h3 {
+.contact-item {
   padding-bottom: 5px;
   font-size: var(--title);
-}
-
-.contact h3 span {
-  font-weight: 100;
+  color: var(--text-white);
+  font-weight: bold;
 }
 
 @media(max-width: 700px) {
@@ -43,14 +47,18 @@
     text-align: center;
   }
 
-  .contact {
-    padding-bottom: 15px;
+  .contact li {
     transition: all 0.5s ease 0s; 
+    text-align: center;
   }
 
-  .links {
-    padding-bottom: 15px;
+  .links li {
     transition: all 0.5s ease 0s; 
+    text-align: center;
+  }
+
+  .categories li {
+    text-align: center;
   }
 
 }

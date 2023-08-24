@@ -21,6 +21,11 @@
   font-style: normal;
   text-decoration: none;
   list-style-type: none;
+
+  /* prevent selection */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
 }
 
 :root {
@@ -28,4 +33,6 @@
   --text: 1em;
   --2xtext: 1.2em;
   --text-white: #fffefe;
+  --background-color: #4a69bd;
+  --selection-color: #1e3799;
 }
