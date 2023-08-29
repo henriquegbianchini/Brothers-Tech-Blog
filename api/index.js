@@ -2,7 +2,19 @@ const express = require("express")
 const app = express()
 
 app.get("/", (req, res) => {
-  res.send("hello world")
+  res.send("home page")
+})
+
+app.get("/contato", (req, res) => {
+  res.send("contato page")
+})
+
+app.get("/sobre", (req, res) => {
+  res.send("sobre page")
+})
+
+app.get("/artigos", (req, res) => {
+  res.send("artigos page")
 })
 
 console.log("Api running on Localhost:5000")
