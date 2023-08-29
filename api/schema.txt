@@ -1,0 +1,17 @@
+first scretch of schema for database
+
+author
+  id
+  name
+  IsAdmin
+
+article
+  id
+  name
+  description
+  FOREGIN KEY category 
+  FOREGIN KEY 
+
+category
+  id
+  name

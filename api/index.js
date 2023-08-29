@@ -1,21 +1,9 @@
-const express = require("express")
-const app = express()
+const app = require('express')()
+const consign = require("consign")
 
-app.get("/", (req, res) => {
-  res.send("home page")
-})
+consign()
+    .then('./routes.js')
+    .into(app)
 
-app.get("/contato", (req, res) => {
-  res.send("contato page")
-})
-
-app.get("/sobre", (req, res) => {
-  res.send("sobre page")
-})
-
-app.get("/artigos", (req, res) => {
-  res.send("artigos page")
-})
-
-console.log("Api running on Localhost:5000")
+console.log("api running on Localhost:5000")
 app.listen(5000)
