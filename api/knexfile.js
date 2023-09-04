@@ -1,12 +1,9 @@
+const { db } = require("./.ENV")
 module.exports = {
 
   development: {
     client: 'postgresql',
-    connection: {
-      database: 'brothers_dev',
-      user: 'test',
-      password: 'test',
-    },
+    connection: db,
     pool: {
       min: 2,
       max: 10
@@ -14,21 +11,21 @@ module.exports = {
     migrations: 'test_migrations'
   },
 
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
+  // staging: {
+  //   client: 'postgresql',
+  //   connection: {
+  //     database: 'my_db',
+  //     user:     'username',
+  //     password: 'password'
+  //   },
+  //   pool: {
+  //     min: 2,
+  //     max: 10
+  //   },
+  //   migrations: {
+  //     tableName: 'knex_migrations'
+  //   }
+  // },
 
   production: {
     client: 'postgresql',

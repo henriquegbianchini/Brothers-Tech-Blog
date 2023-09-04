@@ -9,9 +9,10 @@ article
   id
   name
   description
-  FOREGIN KEY category 
-  FOREGIN KEY 
+  FOREGIN KEY category.name
+  FOREGIN KEY author.name
 
 category
   id
   name
+  FOREGIN KEY author id
