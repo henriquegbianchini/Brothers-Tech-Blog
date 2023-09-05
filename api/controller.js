@@ -1,10 +1,6 @@
 module.exports = app => {
   
-  app.get("/", (req, res) => {
-    res.json({
-      "home page": "hello world",
-    })
-  })
+  app.get("/", app.service.author.get) 
 
   app.get("/contato", (req, res) => {
     res.send("contato page")

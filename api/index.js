@@ -5,6 +5,7 @@ const db = require("./db")
 app.db = db
 
 consign()
+    .then('./service')
     .then('./controller.js')
     .into(app)
 
