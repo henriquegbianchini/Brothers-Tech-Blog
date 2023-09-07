@@ -6,6 +6,7 @@ app.db = db
 
 consign()
     .then('./service')
+    .then('./middeware.js')
     .then('./controller.js')
     .into(app)
 
