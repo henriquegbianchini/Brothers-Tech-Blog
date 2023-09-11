@@ -46,3 +46,23 @@ adicionei a pasta assets importando do projeto principal
 13:26
 movi as rotas pra diretorios própios
 
+11/09/23 
+
+adicionei um diretorio propio de logs e todos dentro do projeto
+adicionei tambem um to do list na pasta logs do projeto
+temos um docker-compose agora (ainda não funcional pois não consegui ter autenticação no banco de dados)
+adicionei a dependencia do postgres no sistema do asdf (não obrigatório so pra quem for novo no projeto saber)
+temos tambem um Dockerfile dentro da api (este sim funcional) só rodar docker build e docker run
+
+no projeto da api temos um .env file que segue as seguintes especificações:
+
+module.exports = {
+  authSecret: '',
+  db: {
+    host: '',
+    port: '',
+    user: '',
+    password: '',
+    database: '',
+  }
+}

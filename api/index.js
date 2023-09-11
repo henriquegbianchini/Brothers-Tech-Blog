@@ -10,5 +10,6 @@ consign()
     .then('./controller.js')
     .into(app)
 
-console.log("api running on Localhost:5000")
-app.listen(5000)
+app.listen(3000, () => {
+  console.log("api running on localhost:3000")
+})
