@@ -1,20 +1,13 @@
 module.exports = app => {
   
-  app.get("/", app.service.author.get) 
+  app.post("/login", app.services.auth.signin)
+  app.get("/validateToken", app.services.auth.validateToken)
 
-  app.get("/contato", (req, res) => {
-    res.send("contato page")
-  })
 
-  app.get("/sobre", (req, res) => {
-    res.send("sobre page")
-  })
-
-  app.get("/artigos", (req, res) => {
-    res.send("artigos page")
-  })
+  app.get("/", app.services.author.get) 
+  app.get("/artigos", app.services.articles.get)
+  app.get("/categorias", app.services.categories.get)
+  app.get("/dashboard", app.services.dashboard.get)
 
 }
-
-
 
