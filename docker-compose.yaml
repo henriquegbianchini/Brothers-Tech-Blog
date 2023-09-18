@@ -1,31 +1,30 @@
-version: '3.4'
+version: '3.8'
 
 services:
-
   api:
     build: 
       "./api"
     hostname: api
     environment:
-      DB_URL: "postgres://postgres:12345678@postgres:5432/brothers_test"
+      DATABASE_URL: postgres://root:12345@postgres:5432/brothers_test
     depends_on:
       - db 
     volumes:
       - ./api:/home/node/app
     expose:
       - "80"
-    # restart: always
+    # restart: on-failure 
 
   db:
     image: docker.io/postgres:15
     hostname: db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 12345678
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: '12345'
       POSTGRES_DB: brothers_test
     # volumes:
     #   - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    #   - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
+      # - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
     # command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
     ports:
       - "5432:5432"

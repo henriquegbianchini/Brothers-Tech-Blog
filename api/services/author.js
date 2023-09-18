@@ -2,13 +2,9 @@ module.exports = app => {
 
 const get = (req, res) => {
   app.db('author')
-    .select('id', 'name')
+    .select('id', 'email', 'password', 'admin')
     .then(author => res.json(author))
   }
-
-
-
-
 
   return { get }
 }
