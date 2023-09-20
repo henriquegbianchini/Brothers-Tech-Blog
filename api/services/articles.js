@@ -14,6 +14,34 @@ module.exports = (app) => {
       .catch((err) => res.status(500).send(err));
   };
 
+
+  const save = (req, res) => {
+      const article = { ...req.body }
+      if(req.params.id) article.id = req.params.id
+
+      try {
+          existsOrError(article.title, 'Nome não informado')
+          existsOrError(article.description, 'Descrição não informada')
+          existsOrError(article.categoryName, 'Categoria não informada')
+          existsOrError(article.authorId, 'Autor não informado')
+      } catch(msg) {
+          res.status(400).send(msg)
+      }
+
+      if(article.id) {
+          app.db('article')
+              .update(article)
+              .where({ id: article.id })
+              .then(_ => res.status(204).send())
+              .catch(err => res.status(500).send(err))
+      } else {
+          app.db('article')
+              .insert(article)
+              .then(_ => res.status(204).send())
+              .catch(err => res.status(500).send(err))
+      }
+  }
+
   const remove = async (req, res) => {
 
     function existsOrError(value, msg) {
@@ -38,5 +66,5 @@ module.exports = (app) => {
     }
   };
 
-  return { get, remove };
+  return { get, save, remove };
 };

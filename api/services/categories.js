@@ -1,24 +1,16 @@
 module.exports = (app) => {
+
   const get = (req, res) => {
-    app.db("categories")
+    app.db("category")
       .then((categories) => res.json(categories))
       .catch((err) => res.status(500).send(err));
   };
 
-  const getById = (req, res) => {
-    app.db("categories")
-      .where({ id: req.params.id })
-      .first()
-      .then((category) => res.json(category))
-      .catch((err) => res.status(500).send(err));
-  };
-
   const save = (req, res) => {
-
     function existsOrError(value, msg) {
-        if(!value) throw msg
-        if(Array.isArray(value) && value.length === 0) throw msg
-        if(typeof value === 'string' && !value.trim()) throw msg
+      if (!value) throw msg;
+      if (Array.isArray(value) && value.length === 0) throw msg;
+      if (typeof value === "string" && !value.trim()) throw msg;
     }
 
     const category = {
@@ -33,19 +25,18 @@ module.exports = (app) => {
     }
 
     if (category.id) {
-      app.db("categories")
+      app.db("category")
         .update(category)
         .where({ id: category.id })
         .then((_) => res.status(204).send())
-
         .catch((err) => res.status(500).send(err));
     } else {
-      app.db("categories")
+      app.db("category")
         .insert(category)
         .then((_) => res.status(204).send())
         .catch((err) => res.status(500).send(err));
     }
   };
 
-  return { get, getById, save };
+  return { get, save };
 };
