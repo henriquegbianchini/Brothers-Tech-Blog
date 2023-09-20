@@ -38,5 +38,23 @@ module.exports = (app) => {
     }
   };
 
-  return { get, save };
+  const remove = async (req, res) => {
+    try {
+      existsOrError(req.params.id, "Código da Categoria não informado.");
+
+      const articles = await app.db("article")
+        .where({ categoryId: req.params.id });
+      notExistsOrError(articles, "Categoria possui artigos.");
+
+      const rowsDeleted = await app.db("category")
+        .where({ id: req.params.id }).del();
+      existsOrError(rowsDeleted, "Categoria não foi encontrada.");
+
+      res.status(204).send();
+    } catch (msg) {
+      res.status(400).send(msg);
+    }
+  };
+
+  return { get, save, remove };
 };

@@ -10,7 +10,8 @@ module.exports = app => {
   app.post("/artigos", app.services.articles.remove)
 
   app.get("/categorias", app.services.categories.get)
-  app.post("/categorias", app.services.categories.save)
+  app.put("/categorias", app.services.categories.save)
+  app.post("/categorias", app.services.categories.remove)
 
   app.get("/dashboard", app.services.dashboard.get)
 
