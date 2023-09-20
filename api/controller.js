@@ -5,6 +5,7 @@ module.exports = app => {
 
   app.get("/", app.services.author.get) 
   app.get("/artigos", app.services.articles.get)
+  app.put("/artigos", app.services.articles.remove)
   app.get("/categorias", app.services.categories.get)
   app.get("/dashboard", app.services.dashboard.get)
 

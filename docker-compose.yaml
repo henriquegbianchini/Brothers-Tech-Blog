@@ -6,31 +6,27 @@ services:
       "./api"
     hostname: api
     environment:
-      DATABASE_URL: postgres://root:12345@postgres:5432/brothers_test
+      DATABASE_URL: postgres://root:433453e9984c904b6dc38d2537a6a45257d4040060f4407458212ad3c976e6b2@172.20.0.1:5432/brothers_test
     depends_on:
       - db 
     volumes:
       - ./api:/home/node/app
-    expose:
-      - "80"
+    ports:
+      - "3000:3000"
     # restart: on-failure 
-
   db:
     image: docker.io/postgres:15
     hostname: db
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: '12345'
+      POSTGRES_PASSWORD: 433453e9984c904b6dc38d2537a6a45257d4040060f4407458212ad3c976e6b2
       POSTGRES_DB: brothers_test
-    # volumes:
-    #   - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      # - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
-    # command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
+    volumes:
+      - ./api/db/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf 
+      - ./api/db/postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
+      - ./api/db/data:/var/lib/postgres/data/
+      - ./api/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf 
     ports:
       - "5432:5432"
-    restart: always
-    # networks:
-    #   - front-tier
-  #
-  # networks:
-  #   front-tier: {}
+    # restart: on-failure

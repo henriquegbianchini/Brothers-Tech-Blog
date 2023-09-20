@@ -3,12 +3,12 @@ const { db } = require("./.ENV")
 module.exports = {
 
   development: {
-    client: 'postgresql',
+    client: 'pg',
     connection: db,
-    // pool: {
-    //   min: 2,
-    //   max: 10
-    // },
+    pool: {
+      min: 2,
+      max: 10
+    },
     migrations: 'test_migrations'
   },
 

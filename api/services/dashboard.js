@@ -1,7 +1,7 @@
 module.exports = app => {
 
 const get = (req, res) => {
-  app.db('categories')
+  app.db('category')
     .select('name')
     .then(author => res.json(author))
   }
