@@ -5,9 +5,10 @@ module.exports = app => {
 
   app.get("/", app.services.author.get) 
 
-  app.get("/artigos", app.services.articles.get)
-  app.put("/artigos", app.services.articles.save)
-  app.post("/artigos", app.services.articles.remove)
+  app.route('/artigos')
+    .get("/artigos", app.services.articles.get)
+    .put("/artigos", app.services.articles.save)
+    .post("/artigos", app.services.articles.remove)
 
   app.get("/categorias", app.services.categories.get)
   app.put("/categorias", app.services.categories.save)

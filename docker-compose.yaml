@@ -6,7 +6,7 @@ services:
       "./api"
     hostname: api
     environment:
-      DATABASE_URL: postgres://root:433453e9984c904b6dc38d2537a6a45257d4040060f4407458212ad3c976e6b2@172.20.0.1:5432/brothers_test
+      DATABASE_URL: postgres://root:password@172.20.0.1:5432/brothers_test
     depends_on:
       - db 
     volumes:
@@ -19,14 +19,20 @@ services:
     hostname: db
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: 433453e9984c904b6dc38d2537a6a45257d4040060f4407458212ad3c976e6b2
+      POSTGRES_PASSWORD: password
       POSTGRES_DB: brothers_test
     volumes:
       - ./api/db/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf 
       - ./api/db/postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
-      - ./api/db/data:/var/lib/postgres/data/
       - ./api/db/init.sql:/docker-entrypoint-initdb.d/init.sql
-    command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf 
+      - ./api/db/data:/var/lib/postgres/data/
+    command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
     # restart: on-failure

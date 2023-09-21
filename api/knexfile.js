@@ -7,7 +7,7 @@ module.exports = {
     connection: db,
     pool: {
       min: 2,
-      max: 10
+      max: 35
     },
     migrations: 'test_migrations'
   },
