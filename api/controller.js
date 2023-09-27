@@ -6,13 +6,16 @@ module.exports = app => {
   app.get("/", app.services.author.get) 
 
   app.route('/artigos')
-    .get("/artigos", app.services.articles.get)
-    .put("/artigos", app.services.articles.save)
-    .post("/artigos", app.services.articles.remove)
+    .all(app.services.jwt.authenticate())
+      .get(app.services.articles.get)
+      .put(app.services.articles.save)
+      .post(app.services.articles.remove)
 
-  app.get("/categorias", app.services.categories.get)
-  app.put("/categorias", app.services.categories.save)
-  app.post("/categorias", app.services.categories.remove)
+  app.route("/categorias")
+    .all(app.services.jwt.authenticate())
+      .get(app.services.categories.get)
+      .put(app.services.categories.save)
+      .post(app.services.categories.remove)
 
   app.get("/dashboard", app.services.dashboard.get)
 
