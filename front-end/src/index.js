@@ -10,6 +10,8 @@ import Articles from './routes/Articles/index.js';
 import Contact from './routes/Contact/index.js';
 import About from './routes/About/index.js';
 import ErrorPage from './routes/Errors/index.js';
+import Dashboard from './routes/Dashboad';
+import Login from './routes/Login';
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
     {
       path: "/artigos",
       element: <Articles />,
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard/>,
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
     ]
   }
