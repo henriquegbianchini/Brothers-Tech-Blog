@@ -2,7 +2,8 @@
   background-color: var(--primary-color);
   display: flex;
   position: relative;
-  flex-direction: column;
+  /* flex-direction: row; */
+  flex-direction: column; /* excluir depois */
   align-items: center;
 }
 
@@ -12,6 +13,10 @@
 }
 
 .home-line {
-  background-color: #fff;
+  background-color: #000;
   margin: 15px;
+}
+
+@media (max-width: 1000px) {
+  .home {flex-direction: column; }
 }

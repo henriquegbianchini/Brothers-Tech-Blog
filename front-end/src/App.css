@@ -32,8 +32,13 @@
   --title: 1.5em;
   --text: 1em;
   --2xtext: 1.2em;
+  --textMin: 0.7em;
+  --text8: 0.8em;
   --text-white: #fffefe;
   --background-color: #4a69bd;
   --selection-color: #1e3799;
+  --buttom-color: #3b5998;
   --primary-color: #bdbdbd;
+  --white: #fff;
+  --orange: #e55039;
 }

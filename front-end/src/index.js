@@ -11,6 +11,7 @@ import Contact from './routes/Contact/index.js';
 import About from './routes/About/index.js';
 import ErrorPage from './routes/Errors/index.js';
 
+
 const router = createBrowserRouter([
   {
    path: "/",
@@ -43,6 +44,7 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
