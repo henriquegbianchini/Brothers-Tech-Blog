@@ -1,4 +1,4 @@
-FROM docker.io/node:18.16.1
+FROM docker.io/bayesimpact/react-base
 
 WORKDIR /usr/src/app
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3001
+EXPOSE 3000
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]

@@ -5,34 +5,43 @@ services:
     build: 
       "./api"
     hostname: api
-    environment:
-      DATABASE_URL: postgres://root:password@172.20.0.1:5432/brothers_test
-    depends_on:
-      - db 
+    # environment:
+      # DATABASE_URL: postgres://root:password@172.20.0.1:5432/brothers_test
+    # depends_on:
+    #   - db 
     volumes:
       - ./api:/home/node/app
     ports:
-      - "3000:3000"
+      - "3001:3001"
     # restart: on-failure 
-  db:
-    image: docker.io/postgres:15
-    hostname: db
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: brothers_test
-    volumes:
-      - ./api/db/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf 
-      - ./api/db/postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
-      - ./api/db/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./api/db/data:/var/lib/postgres/data/
-    command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
+  front:
+    build:
+      "./front-end"
+    hostname: web
     ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
-      interval: 5s
-      timeout: 5s
-      retries: 20
-      start_period: 10s
+      - "3000:3000"
+    volumes:
+      - ./front-end:/home/react/app
+
+  # db:
+  #   image: docker.io/postgres:15
+  #   hostname: db
+  #   environment:
+  #     POSTGRES_USER: root
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: brothers_test
+  #   volumes:
+  #     - ./api/db/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf 
+  #     - ./api/db/postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
+  #     - ./api/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  #     - ./api/db/data:/var/lib/postgres/data/
+  #   command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
+  #   ports:
+  #     - "5432:5432"
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready"]
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 20
+  #     start_period: 10s
     # restart: on-failure
